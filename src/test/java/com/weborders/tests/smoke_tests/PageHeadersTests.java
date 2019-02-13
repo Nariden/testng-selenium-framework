@@ -31,6 +31,8 @@ public class PageHeadersTests extends TestBase {
         extentLogger.info("Clicking on order link");
         pages.viewAllProducts().orderLink.click();
 
+
+
         extentLogger.info("Verifying header for order page");
         assertEquals(pages.order().header.getText(), ApplicationConstants.ORDER);
         // log the pass
