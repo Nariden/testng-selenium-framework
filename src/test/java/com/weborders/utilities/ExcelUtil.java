@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.ss.usermodel.*;
+import org.testng.Assert;
+
 /*
  * This is a utility for reading from writing to excel files.
  * it works with xls and xlsx files.
@@ -26,6 +28,7 @@ public class ExcelUtil {
             // Access the required test data sheet
             workBook = WorkbookFactory.create(ExcelFile);
             workSheet = workBook.getSheet(sheetName);
+            Assert.assertNotNull(workSheet, "Worksheet: \""+sheetName+"\" was not found\n");
 
         } catch (Exception e) {
            throw new RuntimeException(e);
