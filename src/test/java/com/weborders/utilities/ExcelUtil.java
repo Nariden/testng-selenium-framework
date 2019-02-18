@@ -28,10 +28,10 @@ public class ExcelUtil {
             // Access the required test data sheet
             workBook = WorkbookFactory.create(ExcelFile);
             workSheet = workBook.getSheet(sheetName);
-            Assert.assertNotNull(workSheet, "Worksheet: \""+sheetName+"\" was not found\n");
+            Assert.assertNotNull(workSheet, "Worksheet: \"" + sheetName + "\" was not found\n");
 
         } catch (Exception e) {
-           throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 
@@ -50,7 +50,7 @@ public class ExcelUtil {
 
         String[][] data = new String[rowCount()][columnCount()];
 
-        for (int i = 0; i <rowCount(); i++) {
+        for (int i = 0; i < rowCount(); i++) {
             for (int j = 0; j < columnCount(); j++) {
                 String value = getCellData(i, j);
                 data[i][j] = value;
@@ -125,7 +125,7 @@ public class ExcelUtil {
     }
 
     public int rowCount() {
-        return workSheet.getLastRowNum();
+        return workSheet.getLastRowNum() + 1;
     }
 
 }
